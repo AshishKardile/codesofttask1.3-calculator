@@ -1,0 +1,344 @@
+/* Base Styling & Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Premium Desktop Environment Background */
+.desktop-environment {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Soft desk lamp light effect behind the calculator */
+.desk-light {
+  position: absolute;
+  top: -10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.05) 0%, rgba(251, 191, 36, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.calculator-container {
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+/* Calculator Body (Off-White Skeuomorphic Casing) */
+.calculator {
+  position: relative;
+  width: 380px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 
+    0 30px 60px -12px rgba(0, 0, 0, 0.22),
+    0 12px 24px -10px rgba(0, 0, 0, 0.15),
+    inset 0 2px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 10px rgba(0, 0, 0, 0.08);
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* Calculator Diagonal Gloss Reflection sweep */
+.calculator-gloss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    115deg, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(255, 255, 255, 0.2) 30%, 
+    rgba(255, 255, 255, 0) 30.5%
+  );
+  pointer-events: none;
+  z-index: 10;
+  transform: translateX(-10%);
+}
+
+/* Screen container section */
+.screen-section {
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+/* Recessed LCD Screen Outer Bezel */
+.lcd-screen {
+  background-color: #1e293b; /* Sleek dark slate bezel */
+  border-radius: 12px;
+  padding: 5px;
+  box-shadow: 
+    0 3px 6px rgba(0,0,0,0.15),
+    inset 0 1px 2px rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* LCD Screen Faceplate */
+.lcd-display {
+  position: relative;
+  background-color: #afc0af; /* Green-gray LCD screen background */
+  border-radius: 8px;
+  height: 64px;
+  padding: 10px 14px;
+  overflow: hidden;
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.35),
+    inset -1px -1px 3px rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Solar Panel Section styling */
+.solar-panel-section {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 14px 0;
+}
+
+.solar-panel {
+  display: flex;
+  background: linear-gradient(to bottom, #423934 0%, #251d1a 100%);
+  border-radius: 4px;
+  padding: 2px 4px;
+  border: 1.5px solid #94a3b8; /* Slate rim */
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7);
+  height: 22px;
+  width: 104px;
+}
+
+.solar-cell {
+  flex: 1;
+  height: 100%;
+  border-left: 1px solid rgba(245, 158, 11, 0.22); /* Gold cell gridline */
+  opacity: 0.85;
+  background: linear-gradient(90deg, transparent 85%, rgba(251, 191, 36, 0.1) 100%);
+}
+
+.solar-cell:first-child {
+  border-left: none;
+}
+
+/* Memory Indicator styling */
+.lcd-indicators {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.indicator-m {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e2c22;
+  opacity: 0.05; /* Fade when inactive */
+  transition: opacity 0.15s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.indicator-m.active {
+  opacity: 0.85; /* Fully lit when memory is active */
+}
+
+/* LCD digits display layers */
+.lcd-layer {
+  position: absolute;
+  bottom: 8px;
+  right: 14px;
+  font-family: 'DSEG7-Classic', monospace;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Unlit background segments layer */
+.lcd-bg {
+  color: rgba(30, 44, 34, 0.05);
+  z-index: 1;
+}
+
+/* Lit active segments layer */
+.lcd-fg {
+  color: #1e2c22; /* Liquid crystal charcoal color */
+  text-shadow: 0 0 1px rgba(30, 44, 34, 0.15);
+  z-index: 2;
+}
+
+/* Divider Line (not used in off-white design as solar panel separates, but kept for height) */
+.divider {
+  display: none;
+}
+
+/* Keyboard Grid (6-columns alignment system) */
+.keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Buttons base style */
+.btn {
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  color: #334155;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2);
+  height: 50px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Top-half gloss layer inside each button */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.02) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.btn-mem {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Double Height buttons (+ and =) */
+.double-height {
+  grid-row: span 2;
+  height: 110px;
+}
+
+.op-key {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.eq-key {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Off-white/Light Gray Function buttons */
+.btn-function {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  box-shadow: 
+    0 3.5px 0 #cbd5e1, /* Slate rim */
+    0 5px 6px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #334155;
+}
+
+.btn-function:hover {
+  background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.btn-function:active, .btn-function.active {
+  transform: translateY(2.5px);
+  box-shadow: 
+    0 1px 0 #cbd5e1,
+    0 2px 3px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Slate Number buttons */
+.btn-dark {
+  background: linear-gradient(to bottom, #5a5f66 0%, #454a50 100%);
+  box-shadow: 
+    0 3.5px 0 #282a2d, /* Dark slate rim */
+    0 5px 6px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.btn-dark:hover {
+  background: linear-gradient(to bottom, #676c74 0%, #4c5258 100%);
+}
+
+.btn-dark:active, .btn-dark.active {
+  transform: translateY(2.5px);
+  box-shadow: 
+    0 1px 0 #282a2d,
+    0 2px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Vibrant Orange Accent buttons (ON/AC, CE/C, ×) */
+.btn-orange {
+  background: linear-gradient(to bottom, #f97316 0%, #ea580c 100%);
+  box-shadow: 
+    0 3.5px 0 #9a3412, /* Dark orange rim */
+    0 5px 6px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-orange:hover {
+  background: linear-gradient(to bottom, #fa822f 0%, #f97316 100%);
+}
+
+.btn-orange:active, .btn-orange.active {
+  transform: translateY(2.5px);
+  box-shadow: 
+    0 1px 0 #9a3412,
+    0 2px 3px rgba(0, 0, 0, 0.22),
+    inset 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* Screen blink on clear/error */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 0.12s ease-in-out 2;
+}

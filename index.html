@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Off-White Desktop Calculator</title>
+  <meta name="description" content="A high-fidelity, interactive skeuomorphic off-white desktop calculator with solar panel, built with HTML, CSS, and JS. Part of CodSoft Web Development projects.">
+  
+  <!-- DSEG7 Font for the LCD screen -->
+  <link href="https://cdn.jsdelivr.net/npm/dseg@0.46.0/css/dseg.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts for general typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="desktop-environment">
+    <!-- Light source reflection effect on desktop -->
+    <div class="desk-light"></div>
+    
+    <div class="calculator-container">
+      <div class="calculator">
+        <!-- Glossy diagonal reflection overlay for the calculator faceplate -->
+        <div class="calculator-gloss"></div>
+        
+        <!-- Calculator Screen Area -->
+        <div class="screen-section">
+          <div class="lcd-screen" id="lcd-screen">
+            <!-- Memory active indicator 'M' -->
+            <div class="lcd-indicators">
+              <span id="memory-indicator" class="indicator-m">M</span>
+            </div>
+            
+            <!-- LCD Segments -->
+            <div class="lcd-display">
+              <!-- Backing segments layer to simulate realistic physical LCD -->
+              <div class="lcd-layer lcd-bg">8888888888</div>
+              <!-- Foreground layer for the actual active value -->
+              <div class="lcd-layer lcd-fg" id="display-value">0.</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skeuomorphic Solar Panel -->
+        <div class="solar-panel-section">
+          <div class="solar-panel">
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+            <div class="solar-cell"></div>
+          </div>
+        </div>
+        
+        <!-- Button Grid (6 columns alignment system) -->
+        <div class="keyboard-grid">
+          <!-- Row 1: Memory & Function keys -->
+          <button class="btn btn-function" data-key="MC" id="btn-mc">MC</button>
+          <button class="btn btn-function" data-key="MR" id="btn-mr">MR</button>
+          <button class="btn btn-function" data-key="M-" id="btn-mminus">M-</button>
+          <button class="btn btn-function" data-key="M+" id="btn-mplus">M+</button>
+          <button class="btn btn-function" data-key="sqrt" id="btn-sqrt">√</button>
+          <button class="btn btn-function" data-key="MU" id="btn-mu">MU</button>
+
+          <!-- Row 2: 00-0, 7, 8, 9, ÷, % -->
+          <button class="btn btn-function" data-key="00-0">00-0</button>
+          <button class="btn btn-dark" data-key="7">7</button>
+          <button class="btn btn-dark" data-key="8">8</button>
+          <button class="btn btn-dark" data-key="9">9</button>
+          <button class="btn btn-function op-key" data-key="/">÷</button>
+          <button class="btn btn-function" data-key="%">%</button>
+
+          <!-- Row 3: +/-, 4, 5, 6, ×, − -->
+          <button class="btn btn-function" data-key="+/-">+/–</button>
+          <button class="btn btn-dark" data-key="4">4</button>
+          <button class="btn btn-dark" data-key="5">5</button>
+          <button class="btn btn-dark" data-key="6">6</button>
+          <button class="btn btn-orange op-key" data-key="*">×</button>
+          <button class="btn btn-function op-key" data-key="-">−</button>
+
+          <!-- Row 4 & 5: ON/AC, CE/C, numbers, and double height +, = -->
+          <!-- Row 4 keys -->
+          <button class="btn btn-orange" data-key="ON/AC" id="btn-on">ON<br><small>AC</small></button>
+          <button class="btn btn-dark" data-key="1">1</button>
+          <button class="btn btn-dark" data-key="2">2</button>
+          <button class="btn btn-dark" data-key="3">3</button>
+          <button class="btn btn-function double-height op-key" data-key="+" id="btn-plus">+</button>
+          <button class="btn btn-function double-height eq-key" data-key="=" id="btn-equals">=</button>
+
+          <!-- Row 5 keys (Note: + and = span from Row 4, so they occupy columns 5 and 6) -->
+          <button class="btn btn-orange" data-key="CE/C" id="btn-clear">CE/C</button>
+          <button class="btn btn-dark" data-key="0">0</button>
+          <button class="btn btn-dark" data-key="00">00</button>
+          <button class="btn btn-dark" data-key=".">.</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
