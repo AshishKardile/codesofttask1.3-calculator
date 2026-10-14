@@ -102,7 +102,6 @@ pipeline {
 
                     echo "--- Waiting for application pods ---"
                     kubectl wait --for=condition=Ready pod -l app=calculator --timeout=120s
-
                     echo "--- Kubernetes Service Status ---"
                     kubectl get svc calculator-service
 
