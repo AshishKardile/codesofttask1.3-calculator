@@ -1,0 +1,11 @@
+.git
+.gitignore
+.dockerignore
+*.mp4
+generate_notes.py
+Jenkinsfile
+k8s/
+test/
+README.md
+.gemini/
+.agents/
